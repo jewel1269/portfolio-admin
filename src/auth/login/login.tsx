@@ -1,4 +1,8 @@
 import { useForm } from "react-hook-form";
+import BASE_URI from "./../../../constant.js";
+import axios from "axios";
+import toast, { Toaster } from "./../../../node_modules/react-hot-toast/src/index";
+import { useNavigate } from "react-router";
 
 type FormData = {
   name: string;
@@ -7,14 +11,35 @@ type FormData = {
 };
 
 const Login = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>();
 
-  const onSubmit = (data: FormData) => {
-    console.log("Login Data:", data);
+  const onSubmit = async (data: FormData) => {
+    try {
+      const response = await axios.post(`${BASE_URI}/api/admin/login`, data);
+      console.log(response.data);
+       if(response.data.success === false){
+        toast.error("Invalid Admin")
+       }
+      localStorage.setItem("token", response.data.data.token); 
+      if (response.data.success === true) {
+        toast.success("Admin LoggedIn Successfull");
+        setTimeout(() => {
+          navigate("/dashboard/home");
+        }, 2000);
+      } else {
+        toast.error("Login Faild");
+      }
+    } catch (error) {
+      toast.error("Invalid Admin");
+      console.error("Registration error:", error);
+    }
+
+    console.log("Registration Data:", data);
   };
 
   return (
@@ -43,20 +68,6 @@ const Login = () => {
           </p>
 
           <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-            <div>
-              <input
-                {...register("name", { required: "Username is required" })}
-                type="text"
-                placeholder="name"
-                className="w-full px-4 py-2 rounded-2xl border border-[#25545a] text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
-              />
-              {errors.name && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.name.message}
-                </p>
-              )}
-            </div>
-
             <div>
               <input
                 {...register("email", { required: "Email is required" })}
@@ -98,6 +109,7 @@ const Login = () => {
           </p>
         </div>
       </div>
+      <Toaster/>
     </div>
   );
 };

@@ -57,7 +57,7 @@ const Dashboard: React.FC = () => {
             },
             { to: "/dashboard/books", icon: BiBook, label: "Books" },
             {
-              to: "/dashboard/students",
+              to: "/dashboard/student",
               icon: HiOutlineUser,
               label: "Students",
             },

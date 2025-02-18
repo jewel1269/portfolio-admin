@@ -1,14 +1,15 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { FC } from "react";
 
 type PrivateRouteProps = {
-    children?: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 const PrivateRoute: FC<PrivateRouteProps> = ({ children }) => {
-    const isAuthenticated = !!localStorage.getItem("token");
+  console.log(children);
+  const isAuthenticated = Boolean(localStorage.getItem("token"));
 
-    return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
+  return isAuthenticated ? <>{children}</> : <Navigate to="/" />;
 };
 
 export default PrivateRoute;
