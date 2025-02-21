@@ -8,6 +8,7 @@ import BookList from "../components/books/books";
 import BookForm from "../components/create-book/create-book";
 import AdminProfile from "../components/profile/profile";
 import PrivateRoute from "../components/private-route/private-route";
+import BookDetails from "../components/details/books/books";
 // import PrivateRoute from "../components/private-route/private-route";
 
 const routes = createBrowserRouter([
@@ -48,7 +49,13 @@ const routes = createBrowserRouter([
         path: "profile",
         element: <AdminProfile />,
       },
+      {
+        path: "books/:id",
+        element: <BookDetails />,
+      }
+      
     ],
+    
   },
 ]);
 

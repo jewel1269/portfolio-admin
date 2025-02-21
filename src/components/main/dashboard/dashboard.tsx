@@ -15,7 +15,7 @@ const Dashboard: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="flex h-screen">
+    <div className="lg:flex h-screen">
       {/* Sidebar */}
       <aside
         className={`flex flex-col shadow-lime-100 ${
