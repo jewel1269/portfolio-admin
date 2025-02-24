@@ -19,7 +19,10 @@ export const apiSlice = createApi({
     getBooks: builder.query({
       query: () => "/api/books",
     }),
+    findUser: builder.query({
+      query: (userId) => `/api/admin/${userId}`,
+    }),
   }),
 });
 
-export const { useGetBooksQuery } = apiSlice;
+export const { useGetBooksQuery, useFindUserQuery } = apiSlice;

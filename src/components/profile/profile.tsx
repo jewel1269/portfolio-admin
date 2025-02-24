@@ -1,6 +1,13 @@
 import React from "react";
+import { useFindUserQuery } from "../../redux/features/api/api-slice";
 
 const AdminProfile: React.FC = () => {
+  const { data: admin, error, isLoading } = useFindUserQuery("1");
+
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Error loading profile</p>;
+
+  console.log(admin);
   return (
     <div className="max-w-5xl  mx-auto mt-10 shadow-lg rounded-lg p-6">
       <div className="flex items-center space-x-6">
