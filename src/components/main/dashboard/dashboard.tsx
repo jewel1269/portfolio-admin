@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import {
   HiOutlineSearch,
   HiOutlineCog,
-  HiOutlineUser,
-  HiOutlineTicket,
   HiOutlineViewGrid,
 } from "react-icons/hi";
 import { FaSignOutAlt } from "react-icons/fa";
@@ -18,7 +16,7 @@ const Dashboard: React.FC = () => {
     <div className="lg:flex h-screen">
       {/* Sidebar */}
       <aside
-        className={`flex flex-col shadow-lime-100 ${
+        className={`lg:flex fixed  h-full flex-col shadow-lime-100 ${
           isHovered ? "w-72" : "w-28"
         } bg-gradient-to-b from-[#0D2B2F] to-[#386a70] px-4 py-6 overflow-y-auto border-r 
         dark:bg-gray-900 dark:border-gray-700 transition-all duration-300`}
@@ -26,11 +24,11 @@ const Dashboard: React.FC = () => {
         onMouseLeave={() => setIsHovered(false)}
       >
         <h1
-          className={`text-xl text-white font-bold transition-all duration-300 ${
+          className={`text-xl text-center text-white font-bold transition-all duration-300 ${
             isHovered ? "opacity-100" : "opacity-0"
           }`}
         >
-          Library Management System
+          Jewel Mia
         </h1>
 
         {/* Search Box */}
@@ -51,25 +49,15 @@ const Dashboard: React.FC = () => {
         <nav className="mt-6 flex-1 space-y-3">
           {[
             {
-              to: "/dashboard/home",
-              icon: HiOutlineViewGrid,
-              label: "Dashboard",
+              to: "/dashboard/createProject",
+              icon: BiBook,
+              label: "Create Project",
             },
-            { to: "/dashboard/books", icon: BiBook, label: "Books" },
+
             {
-              to: "/dashboard/student",
-              icon: HiOutlineUser,
-              label: "Students",
-            },
-            {
-              to: "/dashboard/loanBook",
-              icon: HiOutlineTicket,
-              label: "Loan Book",
-            },
-            {
-              to: "/dashboard/createBook",
+              to: "/dashboard/createBlog",
               icon: FaAddressBook,
-              label: "Book Add",
+              label: "Create Blog",
             },
             {
               to: "/dashboard/profile",
