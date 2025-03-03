@@ -12,6 +12,9 @@ interface ProjectFormData {
   stack: string[];
   date: string;
   overview: string;
+  live: string, 
+  client:string, 
+  server:string, 
   technology: string[];
   features: string[];
   screenshotImages: string[];
@@ -119,6 +122,22 @@ const ProjectForm = () => {
             {...register("overview", { required: true })}
             className="w-full p-3 rounded-md border border-gray-600 text-black h-32"
           ></textarea>
+
+          <label className="block text-sm text-black mt-3">Live Link:</label>
+          <input
+            {...register("live", { required: true })}
+            className="w-full p-3 rounded-md border border-gray-600 text-black"
+          />
+          <label className="block text-sm text-black mt-3">Client Repo: </label>
+          <input
+            {...register("client", { required: true })}
+            className="w-full p-3 rounded-md border border-gray-600 text-black"
+          />
+          <label className="block text-sm text-black mt-3">Server Repo:</label>
+          <input
+            {...register("server", { required: true })}
+            className="w-full p-3 rounded-md border border-gray-600 text-black"
+          />
 
           <label className="block text-sm text-black mt-3">
             Technology (comma-separated):
