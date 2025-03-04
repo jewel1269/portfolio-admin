@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   HiOutlineSearch,
   HiOutlineCog,
-  HiOutlineViewGrid,
 } from "react-icons/hi";
 import { FaSignOutAlt } from "react-icons/fa";
 import { BiBook } from "react-icons/bi";

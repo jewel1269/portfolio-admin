@@ -10,12 +10,12 @@ interface BlogFormData {
   title: string;
   subtitle?: string;
   category: string;
-  tags: string[];
+  tags: string;
   author: string;
   publishDate: string;
   readTime: string;
   content: string;
-  prerequisites: string[];
+  prerequisites: string;
   codeSnippets: { title: string; code: string; language: string }[];
 }
 

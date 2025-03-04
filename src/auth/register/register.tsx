@@ -3,8 +3,9 @@ import toast, {
   Toaster,
 } from "./../../../node_modules/react-hot-toast/src/index";
 import axios from "axios";
-import BASE_URI from "./../../../constant.js";
+
 import { useNavigate } from "react-router";
+import BASE_URI from "../constant/constant";
 
 type FormData = {
   name: string;

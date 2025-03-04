@@ -1,25 +1,25 @@
 import { useForm } from "react-hook-form";
 import { FiUploadCloud } from "react-icons/fi";
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
 const IMGBB_API_KEY = "ccf8111c50b51793f51c952e97443e31";
 
+// Define the interface for the form data
 interface ProjectFormData {
   title: string;
-  image: string;
-  stack: string[];
+  stack: string;
   date: string;
   overview: string;
-  live: string, 
-  client:string, 
-  server:string, 
-  technology: string[];
-  features: string[];
-  screenshotImages: string[];
+  live: string;
+  client: string;
+  server: string;
+  technology: string;
+  features: string;
+  screenshotImages: string;
   category: string;
-  status: "not_started" | "in_progress" | "completed";
+  status: 'not_started' | 'in_progress' | 'completed';
 }
 
 const ProjectForm = () => {
@@ -27,7 +27,7 @@ const ProjectForm = () => {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string>("");
 
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageUpload = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
       setImageFile(file);

@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
-import BASE_URI from "./../../../constant.js";
 import axios from "axios";
 import toast, { Toaster } from "./../../../node_modules/react-hot-toast/src/index";
 import { useNavigate } from "react-router";
+import BASE_URI from "../constant/constant";
+
 
 type FormData = {
   name: string;
@@ -29,7 +30,7 @@ const Login = () => {
       if (response.data.success === true) {
         toast.success("Admin LoggedIn Successfull");
         setTimeout(() => {
-          navigate("/dashboard/home");
+          navigate("/dashboard/createProject");
         }, 2000);
       } else {
         toast.error("Login Faild");
