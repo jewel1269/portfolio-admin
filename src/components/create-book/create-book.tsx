@@ -73,6 +73,8 @@ const BlogForm = () => {
       }
     }
 
+
+
     try {
       const blogPost = {
         ...data,
@@ -87,7 +89,7 @@ const BlogForm = () => {
       console.log(blogPost);
 
       const response = await axios.post(
-        "http://localhost:5000/api/blog/create-blog",
+        "https://portfolio-server-theta-umber.vercel.app/api/blog/create-blog",
         blogPost
       );
 

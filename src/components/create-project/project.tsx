@@ -74,7 +74,7 @@ const ProjectForm = () => {
       console.log(projectData);
 
       const response = await axios.post(
-        "http://localhost:5000/api/project/create-project",
+        "https://portfolio-server-theta-umber.vercel.app/api/project/create-project",
         projectData
       );
 
